@@ -111,9 +111,9 @@
             const tarjeta = document.createElement('div');
             tarjeta.className = 'tarjeta-foto';
 
-            // Ponemos la imagen apuntando al nombre (1.jpg, 2.jpg...)
+            // Ponemos la imagen apuntando al nombre correcto (foto1.jpg, foto2.jpg...)
             tarjeta.innerHTML = `
-                <img src="${i}.jpg" alt="Foto ${i}" loading="lazy">
+                <img src="foto${i}.jpg" alt="Foto ${i}" loading="lazy">
                 <p>Imagen ${i}</p>
             `;
 
