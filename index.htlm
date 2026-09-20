@@ -1,1 +1,197 @@
 # camel65.github.io.
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio - Mi Web</title>
+    <style>
+        body {
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 30px;
+            
+            /* Animación de fondo */
+            background: linear-gradient(45deg, darkblue, red, green, blue);
+            background-size: 400% 400%;
+            animation: fondoAnimado 20s ease infinite;
+        }
+
+        @keyframes fondoAnimado {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* DISEÑO DEL RELOJ DIGITAL */
+        .contenedor-reloj {
+            background-color: rgba(0, 0, 0, 0.4);
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 20px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
+        }
+        #reloj {
+            font-size: 35px;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+            letter-spacing: 2px;
+        }
+        #fecha {
+            font-size: 14px;
+            margin-top: 5px;
+            color: #bdc3c7;
+            text-transform: capitalize;
+        }
+
+        /* DISEÑO DE LA CAJITA DE LA FRASE DEL DÍA */
+        .contenedor-frase {
+            margin: 20px auto;
+            max-width: 550px;
+            width: 90%;
+            font-style: italic;
+            font-size: 18px;
+            color: #f1c40f; 
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+            padding: 0 10px;
+        }
+
+        /* BOTÓN ELEGANTE DE GOOGLE */
+        .boton-google {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 2px solid white;
+            padding: 12px 25px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 15px auto 25px auto;
+            font-weight: bold;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        .boton-google:hover {
+            background-color: white;
+            color: #1A2530;
+            box-shadow: 0px 6px 15px rgba(255,255,255,0.4);
+        }
+
+        /* DISEÑO DE TUS BOTONES AZULES */
+        .mi-boton {
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .mi-boton:hover {
+            background-color: darkblue;
+        }
+
+        /* NUEVO DISEÑO: BOTÓN DE SALIR (NEGRO) */
+        .boton-salir {
+            background-color: black; /* Negro */
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .boton-salir:hover {
+            background-color: #b32324; /* Rojo más oscuro al pasar el ratón */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Contenedor del reloj y la fecha -->
+    <div class="contenedor-reloj">
+        <div id="reloj">00:00:00</div>
+        <div id="fecha">Cargando fecha...</div>
+    </div>
+
+    <h1>¡Bienvenido a mi WEB!</h1>
+    <p>PROYECTO WEB</p>
+
+    <!-- Espacio para la frase aleatoria -->
+    <div class="contenedor-frase">
+        <span id="texto-frase">Cargando pensamiento...</span>
+    </div>
+
+    <!-- BOTÓN DE ACCESO DIRECTO A GOOGLE -->
+    <div>
+        <a href="https://www.google.com" target="_blank" class="boton-google">
+            🔍 Acceso a Google
+        </a>
+    </div>
+  
+    <!-- Botones de navegación y nuevo botón de Salir -->
+    <div style="margin-top: 10px;">
+        <a href="galeria.html" class="mi-boton" style="margin-right: 10px;">
+            Galeria de Imagenes
+        </a>
+        <a href="enlaces.html" class="mi-boton" style="margin-right: 10px;">
+            Enlaces 
+        </a>
+        <!-- NUEVO BOTÓN: Salir de la web y volver a Google -->
+        <a href="https://www.google.com" class="boton-salir">
+            ❌ Salir
+        </a>
+    </div>
+
+    <!-- EL CEREBRO (JAVASCRIPT) -->
+    <script>
+        // 1. CÓDIGO DEL RELOJ
+        function actualizarReloj() {
+            const ahora = new Date();
+            let horas = ahora.getHours();
+            let minutos = ahora.getMinutes(); 
+            let segundos = ahora.getSeconds();
+            
+            horas = horas < 10 ? '0' + horas : horas;
+            minutos = minutos < 10 ? '0' + minutos : minutos; 
+            segundos = segundos < 10 ? '0' + segundos : segundos;
+            
+            document.getElementById('reloj').textContent = horas + ':' + minutos + ':' + segundos;
+            
+            const opcionesFecha = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const fechaFormateada = ahora.toLocaleDateString('es-ES', opcionesFecha);
+            document.getElementById('fecha').textContent = fechaFormateada;
+        }
+        actualizarReloj();
+        setInterval(actualizarReloj, 1000);
+
+        // 2. LISTA DE FRASES ALEATORIAS
+        const misFrases = [
+            "✨ 'El único modo de hacer un gran trabajo es amar lo que haces.' — Steve Jobs",
+            "🚀 'No cuentes los días, haz que los días cuenten.' — Muhammad Ali",
+            "🌟 'La vida es lo que pasa mientras estás ocupado haciendo otros planes.' — John Lennon",
+            "💡 'Si lo puedes imaginar, lo puedes programar.' — Sabiduría Digital",
+            "🍀 'Aprender es descubrir que algo es posible.' — Fritz Perls",
+            "🎯 'Hoy es un buen día para aprender algo nuevo.'",
+            "🌈 'Haz de cada día tu obra maestra.' — John Wooden"
+        ];
+
+        function mostrarFraseAleatoria() {
+            const numeroAlAzar = Math.floor(Math.random() * misFrases.length);
+            document.getElementById('texto-frase').textContent = misFrases[numeroAlAzar];
+        }
+
+        mostrarFraseAleatoria();
+    </script>
+
+</body>
+</html>
