@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enlaces</title>
+    <style>
+        body {
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 30px 10px;
+            
+            /* Animación de fondo integrada a juego con el inicio */
+            background: linear-gradient(45deg, darkgreen, #14342B, #23272A, darkblue);
+            background-size: 400% 400%;
+            animation: fondoAnimado 20s ease infinite;
+        }
+
+        @keyframes fondoAnimado {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .contenedor-enlaces {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px; /* Separa los botones de enlaces entre sí */
+            margin-top: 30px;
+        }
+        .mi-boton {
+            background-color: darkblue;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            width: 80%;
+            max-width: 350px; /* Evita que los botones se estiren demasiado */
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+            transition: background-color 0.3s;
+        }
+        .mi-boton:hover {
+            background-color: black;
+        }
+        .boton-volver {
+            background-color: white;
+            color: black;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        /* AJUSTES ADAPTATIVOS PARA PANTALLAS DE MÓVIL (ABAJO DEL TODO) */
+        @media (max-width: 768px) {
+            .boton-volver {
+                display: block;
+                width: 80%;
+                margin: 10px auto 25px auto;
+                font-size: 20px; /* Botón Volver más cómodo para el dedo */
+                padding: 15px 20px;
+            }
+            .mi-boton {
+                font-size: 20px; /* Letra más grande en los enlaces para leer mejor */
+                padding: 18px 25px; /* Botones más gruesos y fáciles de pulsar */
+                max-width: 90%; /* Les damos un poquito más de espacio a lo ancho en el móvil */
+            }
+            h1 {
+                font-size: 28px; /* Título adaptado al tamaño de la pantalla */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Botón para regresar al menú principal -->
+    <a href="index.html" class="boton-volver">⬅ Volver al Inicio</a>
+
+    <h1>Enlaces de Interés</h1>
+    <p>Páginas web recomendadas para pasar el rato</p>
+
+    <div class="contenedor-enlaces">
+        
+        <!-- ENLACE 1: El Tiempo -->
+        <a href="https://www.aemet.es/es/portada" target="_blank" class="mi-boton">
+            🌦️ Ver El Tiempo
+        </a>
+
+        <!-- ENLACE 2: Autodefinidos / Crucigramas -->
+        <a href="https://www.tarkus.info/autodefinidos/" target="_blank" class="mi-boton">
+            🧩 Autodefinidos
+        </a>
+
+        <!-- ENLACE 3: Free Mahjong -->
+        <a href="https://freemahjong.org" target="_blank" class="mi-boton">
+            🎮 Free Mahjong
+        </a>
+ 
+        <!-- ENLACE 4: RAC-02 Modular Tecno Machine -->
+        <a href="https://ssx360.github.io/rack-02/rack.html?src=hn" target="_bl
